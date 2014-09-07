@@ -1,0 +1,12 @@
+[Unit]
+Description=NGINX Proxy
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill nginx-proxy
+ExecStartPre=-/usr/bin/docker rm nginx-proxy
+ExecStartPre=/usr/bin/docker pull russmckendrick/nginx-proxy
+ExecStart=/usr/bin/docker run -d -p 80:80 --name nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock -t russmckendrick/nginx-proxy
+ExecStop=/usr/bin/docker stop nginx-proxy
