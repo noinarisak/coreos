@@ -1,4 +1,4 @@
-export PATH=${PATH}:/home/core/share/tools/bin
+export PATH=${PATH}:/home/core/tools/bin
 
 function sudo() {
    local ARGS
