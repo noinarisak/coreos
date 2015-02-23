@@ -6,9 +6,10 @@ function install() {
 	echo 'installing...'
 	#cd $(pwd)
 	mkdir -p tools/bin
-	docker run --rm jpetazzo/nsenter cat /nsenter > tools/bin/nsenter
-	curl -L https://raw.githubusercontent.com/jpetazzo/nsenter/master/docker-enter > tools/bin/docker-enter
-	curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > tools/bin/fig
+	# docker run --rm jpetazzo/nsenter cat /nsenter > tools/bin/nsenter
+	# curl -L https://raw.githubusercontent.com/jpetazzo/nsenter/master/docker-enter > tools/bin/docker-enter
+	# curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > tools/bin/fig
+	curl -L https://github.com/docker/fig/releases/download/1.1.0-rc2/docker-compose-`uname -s`-`uname -m` > tools/bin/docker-compose
 	chmod +x tools/bin/*
 }
 
